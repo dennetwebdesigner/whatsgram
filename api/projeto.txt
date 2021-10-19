@@ -1,0 +1,22 @@
+
+@Matheus
+- requests express
+server http
+socket.io
+DataBase mysql
+
+- refresh server
+nodemon
+
+- permissões
+cors
+
+
+@joatan
+- web
+html
+css
+js
+
+socket.io-client
+ajax
