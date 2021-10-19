@@ -1,0 +1,36 @@
+Arguments: 
+  C:\laragon\bin\nodejs\node-v14\node.exe C:\Users\Jhonys\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init --y
+
+PATH: 
+  C:\Users\Jhonys\AppData\Local\Yarn\config\global\node_modules\.bin;C:\Users\Jhonys\AppData\Roaming\npm;C:\Users\Jhonys\AppData\Roaming\Composer\vendor\bin;;C:\laragon\bin\laragon\utils;C:\laragon\bin\mysql\mysql-5.7.33-winx64\bin;C:\laragon\bin\php\php-7.4.19-Win32-vc15-x64;C:\laragon\bin\composer;C:\laragon\bin\apache\httpd-2.4.47-win64-VS16\bin;C:\laragon\bin\redis\redis-x64-3.2.100;C:\laragon\bin\nodejs\node-v14;C:\laragon\bin\nginx\nginx-1.19.10;C:\laragon\bin\notepad++;C:\laragon\bin\telnet;C:\laragon\bin\ngrok;C:\laragon\bin\git\bin;C:\laragon\bin\git\cmd;C:\laragon\bin\git\usr\bin;C:\laragon\bin\git\mingw64\bin;C:\laragon\bin;C:\laragon\usr\bin;C:\laragon\bin\cmder\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\dotnet;C:\Users\Jhonys\AppData\Local\Microsoft\WindowsApps;C:\Users\Jhonys\AppData\Roaming\npm;C:\Users\Jhonys\.dotnet\tools;C:\Program Files\dotnet;D:\programas\Microsoft VS Code\bin;C:\Program Files\heroku\bin;C:\Users\Jhonys\AppData\Local\Yarn\bin;D:\lua;;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\share\vim\vim74;C:\laragon\bin\cmder\;
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  14.16.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (C:\Users\Jhonys\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:137023:13)
+      at Interface.emit (events.js:315:20)
+      at Interface._ttyWrite (readline.js:875:16)
+      at ReadStream.onkeypress (readline.js:213:10)
+      at ReadStream.emit (events.js:315:20)
+      at emitKeys (internal/readline/utils.js:345:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1144:36)
+      at ReadStream.emit (events.js:315:20)
+      at addChunk (internal/streams/readable.js:309:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
