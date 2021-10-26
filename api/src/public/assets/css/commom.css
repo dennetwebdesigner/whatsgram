@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    background: linear-gradient(241.18deg, #FA9A0A -5.96%, #FFF2C0 97.63%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Description */
+
+.panel {
+    width: 360px;
+    margin: 0 30px;
+    background-color: #fff;
+    position: relative;
+    height: 460px;
+    padding: 20px;
+}
+
+.panel h1 {
+    color: #444;
+    text-align: center;
+    font-size: 38px;
+}
+
+.panel img {
+    position: absolute;
+    bottom: 0;
+    left: -12px;
+    z-index: 0;
+}
+
+.description {
+    width: 216px;
+    margin: 0 auto;
+    margin-top: 25px;
+    font-size: 28px;
+    list-style: none;
+}
+
+.description li {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+.description li::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    width: 0;
+    height: 0;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #FA9A0A;
+}
+
+
+/* FORM SIGN */
+
+#sign-in h2 {}
+
+.panel h2 {
+    color: #444;
+    text-align: center;
+    font-size: 34px;
+    margin-top: 20px;
+}
+
+.panel form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 161px;
+}
+
+.form-group {
+    width: 100%;
+    margin-top: 30px;
+    padding: 5px;
+}
+
+.form-group input {
+    margin: 0 auto;
+    width: 100%;
+    height: 60px;
+    font-size: 22px;
+    border: 2px solid #222;
+    padding: 5px;
+    color: #F0750A;
+}
+
+.form-group button {
+    background-color: #F0750A;
+    padding: 15px 25px;
+    float: right;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: #fff;
+    font-size: 18px;
+    border: 2px solid #F0750A;
+    transition: .5s;
+}
+
+.form-group button:hover {
+    background-color: transparent;
+    color: #F0750A;
+    cursor: pointer;
+}
