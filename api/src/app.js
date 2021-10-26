@@ -2,13 +2,16 @@ class App {
     constructor() {
         //Requisição Express
         this.express = require('express');
-        const app = this.express();
+        this.app = this.express();
 
         //cors permissões
         this.cors = require('cors')
 
         // criei um server
-        this.server = require('http').createServer(app);
+        this.server = require('http').createServer(this.app)
+
+        this.middleware()
+        this.routes()
     }
 
     middleware() {
