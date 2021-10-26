@@ -1,11 +1,15 @@
+require('./database')
+
 class App {
     constructor() {
-        //Requisição Express
+        //Requisição 
         this.express = require('express');
+        this.cors = require('cors')
+
+        //instanciando express
         this.app = this.express();
 
         //cors permissões
-        this.cors = require('cors')
 
         // criei um server
         this.server = require('http').createServer(this.app)
