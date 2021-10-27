@@ -45,10 +45,11 @@ document.body.onload = () => {
     btnRegister.addEventListener('click', e => {
 
         e.preventDefault()
+        console.log('aqui')
         const href = window.location.href
         const path = href.substring(href.lastIndexOf('/') + 1)
 
-        if (path == '') {
+        if (path == 'entrar') {
             window.history.pushState({ page: "register" }, "register page", "cadastrar")
 
             panelSign.style.transform = "translateX(-404px)"
@@ -84,27 +85,27 @@ document.body.onload = () => {
         const path = href.substring(href.lastIndexOf('/') + 1)
         console.log(path)
         if (path == 'cadastrar') {
-            window.history.pushState({ page: "enter" }, "enter page", "/")
+            window.history.pushState({ page: "enter" }, "enter page", "entrar")
 
             panelSign.style.transform = "translateX(0)"
             panelSideLeft.style.transform = "translateX(0)"
 
-            // FADE OUT SIGN IN, FIRST PANEL 
+            // FADE OUT SIGN UP, SECOND PANEL 
             secondPanel.style.opacity = '0'
             signUp.style.opacity = '0'
 
             setTimeout(() => {
-                // Remove display SIGN IN, FIRST PANEL 
+                // Remove display SIGN UP, SECOND PANEL 
                 secondPanel.style.display = 'none'
                 signUp.style.display = 'none'
 
 
-                // ADD DISPLAY SIGN UP, SECOND PANEL 
+                // ADD DISPLAY SIGN IN, FIRST PANEL 
                 firstPanel.style.display = 'block'
                 signIn.style.display = 'block'
 
                 setTimeout(() => {
-                    // FADE IN SIGN UP, SECOND PANEL 
+                    // FADE IN SIGN IN, FIRST PANEL 
                     firstPanel.style.opacity = '1'
                     signIn.style.opacity = '1'
                 }, 200)

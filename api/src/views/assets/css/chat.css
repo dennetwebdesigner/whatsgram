@@ -1,0 +1,149 @@
+body {
+    background: #FA9A0A;
+}
+
+main {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+nav {
+    width: 119px;
+    background-color: #fff;
+    height: 100%;
+    position: relative;
+    box-shadow: 1px 1px 9px black;
+}
+
+nav ul {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+}
+
+.menu-item {
+    width: 100%;
+    margin: 35px auto;
+}
+
+.menu-item img {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+}
+
+.menu-item img:hover {
+    cursor: pointer;
+}
+
+
+/* display */
+
+#displays-panel {
+    width: 280px;
+    height: 100%;
+}
+
+.list-display {
+    width: 100%;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.list-display li {
+    width: 100%;
+    background-color: white;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    margin: 8px;
+    transition: .5s;
+}
+
+.list-display li:hover {
+    box-shadow: 3px 4px 9px rgba(0, 0, 0, .6);
+    cursor: pointer;
+}
+
+.list-display li img {
+    width: 20%;
+}
+
+.list-display li p {
+    font-size: 18px;
+    font-family: sans-serif;
+    color: #444;
+    margin-left: 10px;
+}
+
+
+/* CHAT CONTENT */
+
+#chat-content {
+    min-width: 500px;
+    width: 60%;
+    height: 98%;
+    background-color: #fff;
+    margin-top: .5%;
+    margin-left: 15px;
+}
+
+header {
+    width: auto;
+    display: flex;
+    padding: 15px;
+    align-items: center;
+    height: 120px;
+    border-bottom: 1px solid #444;
+}
+
+header img {
+    display: block;
+    height: 90%;
+    margin-right: 10px;
+}
+
+header h2 {
+    font-size: 24px;
+    color: #444
+}
+
+.chat-messages {
+    width: auto;
+    height: 83.5%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.messages {
+    width: 100%;
+    margin: 10px auto;
+    border-bottom: 1px solid #444;
+    padding-bottom: 20px;
+    float: left;
+    clear: both;
+}
+
+.messages h3 {
+    font-weight: lighter;
+    font-size: 14px;
+}
+
+.messages p {
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    width: 80%;
+}
+
+.my-message {}
+
+.my-message h3 {
+    text-align: right;
+}
+
+.my-message p {
+    float: right;
+}

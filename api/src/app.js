@@ -5,6 +5,7 @@ class App {
         //Requisição 
         this.express = require('express');
         this.cors = require('cors')
+
         this.routesView = require('./routes/public')
 
         //instanciando express
@@ -22,6 +23,7 @@ class App {
     middleware() {
         this.app.use(this.express.json())
         this.app.use(this.cors())
+
     }
 
     routes() {
