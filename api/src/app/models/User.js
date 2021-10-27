@@ -24,6 +24,10 @@ class User extends Model {
         return await bcrypt.compare(password, this.password)
     }
 
+    static associte(models) {
+        this.hasMany(models.Messages, { foreignKey: 'user_id', as: 'messages' })
+    }
+
 }
 
 module.exports = User

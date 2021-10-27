@@ -15,4 +15,5 @@ body {
     background: linear-gradient(241.18deg, #FA9A0A -5.96%, #FFF2C0 97.63%);
     display: flex;
     align-items: center;
+    justify-content: center;
 }

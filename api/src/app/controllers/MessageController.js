@@ -1,6 +1,7 @@
 const User = require('../models/User')
+const Message = require('../models/Message')
 
-class UserController {
+class MessageController {
 
     static async index() {}
 
@@ -8,25 +9,24 @@ class UserController {
 
     static async store(req, res) {
 
-        const { name, email, password } = req.body
+        const { message } = req.body
+        const { user_id } = req.params
 
-        if (!name, !email, !password)
+        if (!message)
             return res.status(400).json({})
 
         const userExist = await User.findOne({
-            where: { email },
+            where: { id: user_id },
             attributes: ['id']
         })
 
-        if (userExist) return res.status(400).json({})
+        if (!userExist) return res.status(404).json({})
 
         try {
 
-            if (await User.create({
-                    name,
-                    email,
-                    password_input: password,
-                    img: './assets/img/user-icon.png'
+            if (await Message.create({
+                    message,
+                    user_id
                 })) {
                 return res.status(201).json({})
             }
@@ -44,4 +44,4 @@ class UserController {
 
 }
 
-module.exports = UserController
+module.exports = MessageController
