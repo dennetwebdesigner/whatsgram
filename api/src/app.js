@@ -5,6 +5,7 @@ class App {
         //Requisição 
         this.express = require('express');
         this.cors = require('cors')
+        this.route = require('./routes/routes')
 
         this.routesView = require('./routes/public')
 
@@ -27,8 +28,10 @@ class App {
     }
 
     routes() {
+        this.app.use('/api', this.route);
         //rotas public -> front-end
         this.app.use(this.routesView);
+
     }
 }
 

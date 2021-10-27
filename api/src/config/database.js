@@ -4,6 +4,10 @@ module.exports = {
     host: '127.0.0.1',
     database: 'whatsgram',
     username: 'root',
-    password: ''
-
+    password: '',
+    define: {
+        timestamp: true,
+        underscored: true,
+        underscoredAll: true,
+    }
 }
