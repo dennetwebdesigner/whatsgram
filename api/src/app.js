@@ -5,6 +5,7 @@ class App {
         //Requisição 
         this.express = require('express');
         this.cors = require('cors')
+        this.routesView = require('./routes/public')
 
         //instanciando express
         this.app = this.express();
@@ -25,7 +26,7 @@ class App {
 
     routes() {
         //rotas public -> front-end
-        this.app.use('/', this.express.static(require('path').resolve(__dirname, 'public')));
+        this.app.use(this.routesView);
     }
 }
 
