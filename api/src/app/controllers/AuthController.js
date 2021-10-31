@@ -6,13 +6,18 @@ const { promisify } = require('util')
 class AuthController {
     static async index(req, res) {
         const authHeader = req.headers.authorization
+        const id_user = req.query.id
 
         if (!authHeader) return res.status(400).json({ error: 'token not provided!' })
+        const [, token] = authHeader.split(' ')
 
         try {
             const decoded = await promisify(jwt.verify)(token, authConfig.secret)
 
-            req.userId = decoded.id
+            if (decoded.id != req.userId || decoded.id != id_user || req.userId != id_user) {
+                console.log('token invalid or user forced change id')
+                return res.status(400).json({ error: 'token invalid' })
+            }
 
             return res.json({ id: req.userId })
 

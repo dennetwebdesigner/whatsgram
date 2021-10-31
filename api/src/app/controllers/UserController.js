@@ -4,7 +4,22 @@ class UserController {
 
     static async index() {}
 
-    static async show() {}
+    static async show(req, res) {
+        const { id } = req.params
+
+        const user = await User.findOne({
+            where: { id },
+            attributes: ['id', 'name', 'img']
+        })
+
+        if (!user) return res.status(404).json({})
+
+        try {
+            return res.json(user)
+        } catch (error) {
+            return res.status(500).json({})
+        }
+    }
 
     static async store(req, res) {
 

@@ -21,13 +21,35 @@ signUp.addEventListener('submit', async e => {
         password: password.value
     })
 
-    result.onreadystatechange = () => {
+    result.onreadystatechange = async() => {
         if (result.readyState == 4) {
             if (result.status == 400)
                 alert('Esse email já está em uso, utilize outro por favor.');
 
-            if (result.status == 201)
-                alert('Conta criada com sucesso, por favor faça o login');
+            if (result.status == 201) {
+
+                const login = await api('post', '/auth', {
+                    email: email.value,
+                    password: password.value
+                })
+
+                login.onreadystatechange = async() => {
+                    if (login.readyState == 4) {
+                        if (login.status == 200) {
+
+                            const { user, token } = JSON.parse(login.responseText)
+                            await window.localStorage.setItem('token', token)
+                            await window.localStorage.setItem('user', user)
+
+                            window.location.href = '/'
+
+
+                        }
+                    }
+                }
+
+
+            }
         }
     }
 

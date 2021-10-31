@@ -14,5 +14,6 @@ route.use(authMiddleware)
 route.get('/auth/validate', authController.index)
 
 route.post('/messages/:user_id', MessageController.store)
+route.get('/users/:id', UserController.show)
 
 module.exports = route
