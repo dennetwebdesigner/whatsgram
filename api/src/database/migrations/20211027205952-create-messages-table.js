@@ -9,7 +9,11 @@ module.exports = {
                 autoIncrement: true,
                 primaryKey: true
             },
-            user_id: {
+            to: {
+                type: Sequelize.INTEGER,
+                references: { model: 'users', key: 'id' }
+            },
+            from: {
                 type: Sequelize.INTEGER,
                 references: { model: 'users', key: 'id' }
             },

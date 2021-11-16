@@ -12,7 +12,7 @@ class UserController {
             attributes: ['id', 'name', 'img']
         })
 
-        if (!user) return res.status(404).json({})
+        if (!user) return res.status(404).json({ error: 'UserController' })
 
         try {
             return res.json(user)

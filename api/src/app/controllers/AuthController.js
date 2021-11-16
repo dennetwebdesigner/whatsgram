@@ -15,7 +15,7 @@ class AuthController {
             const decoded = await promisify(jwt.verify)(token, authConfig.secret)
 
             if (decoded.id != req.userId || decoded.id != id_user || req.userId != id_user) {
-                console.log('token invalid or user forced change id')
+
                 return res.status(400).json({ error: 'token invalid' })
             }
 
@@ -23,7 +23,6 @@ class AuthController {
 
         } catch (error) {
 
-            console.log()
 
             return res.status(401).json({ error: 'token invalid' })
 

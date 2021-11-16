@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WhatsGram Chat</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" href="./assets/css/commom.css">
     <link rel="stylesheet" href="./assets/css/chat.css">
 
@@ -13,9 +15,12 @@
 
 <body>
     <main>
-
+        <!-- <div id="mobile-icon">
+            <i class="fas fa-bars"></i>
+        </div> -->
         <nav id="menu">
-            <ul>
+
+            <ul class="menu-list">
                 <li class="menu-item">
                     <img src="./assets/img/message-icon.png" id="menu-messages" alt="mensagens">
                 </li>
@@ -28,38 +33,45 @@
                 </li>
             </ul>
 
+            <div class="menu-content">
+                <ul id="conversations" class="list-display">
+
+                </ul>
+            </div>
+
         </nav>
 
-        <section id="displays-panel">
-            <ul id="conversations" class="list-display">
-
-            </ul>
-        </section>
 
         <section id="chat-content">
             <header>
+                <div id="chat-back"><i class="fas fa-arrow-circle-left"></i></div>
                 <img src="./assets/img/user-icon.png" alt="">
                 <h2>lsdkjgr saeofjeof</h2>
             </header>
 
-            <div class='chat-messages'>
+            <div class='chat-messages' id='chat-messages'></div>
 
-                <div class="messages my-message">
-                    <h3>lsdkjgr saeofjeof <span>11-15-4558 10:54:21</span></h3>
-                    <p>lsdkjgr saeofjeof lsdkjgr saeofjeof lsdkjgr saeofjeof lsdkjgr saeofjeof lsdkjgr saeofjeof</p>
-                </div>
-
-                <div class="messages ">
-                    <h3>lsdkjgr saeofjeof <span>11-15-4558 10:54:21</span></h3>
-                    <p>lsdkjgr saeofjeof lsdkjgr saeofjeof lsdkjgr saeofjeof lsdkjgr saeofjeof lsdkjgr saeofjeof</p>
-                </div>
-
-            </div>
+            <form id="send-message">
+                <input type="text" name="message" placeholder="enviar message..." autocomplete="off">
+                <button type="submit">Enviar</button>
+            </form>
 
         </section>
     </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./assets/js/timeline.js" type="module"></script>
+    <script>
+        document.body.onload = () => {
+
+            const chatBackSwitch = document.querySelector('#chat-back')
+            const chatContainer = document.querySelector('#chat-content')
+
+            chatBackSwitch.addEventListener('click', () => {
+                chatContainer.style.transform = 'translateX(-100%)'
+                window.localStorage.removeItem('by')
+            })
+        }
+    </script>
 </body>
 
 </html>

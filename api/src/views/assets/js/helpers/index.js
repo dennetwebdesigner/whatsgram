@@ -1,3 +1,43 @@
- const baseUrl = 'http://localhost:3000'
+import Api from './api.js'
+class Helpers {
+    constructor() {
+        // protocolo http
+        this.protocol = 'http://'
+        // host/dominio
+        this.host = 'localhost'
+        // porta da aplicação caso necessario
+        this.port = ':3000'
 
- export { baseUrl }
+        this.baseUrl = `${this.protocol}${this.host}${this.port}`
+    }
+
+    // captura url padrão 
+    getBaseUrl() {
+        return this.baseUrl
+    }
+
+
+    // autentificação de usurio
+    async authentification() {
+        // conecta-se a api para 
+        const result = await Api.connect('GET', `/auth/validate?id=${window.localStorage.getItem('user')}`, null, `bearer ${window.localStorage.getItem('token')}`)
+
+        // caso usuario ou token não sejam reconhecidos
+        result.onreadystatechange = () => {
+
+            if (result.status != 200) {
+                window.location.href = '/entrar'
+            }
+
+        }
+    }
+
+
+}
+
+// caputra elemento HTML
+export const QS = (element) => {
+    return document.querySelector(element)
+}
+
+export default new Helpers()

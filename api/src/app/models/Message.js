@@ -5,12 +5,14 @@ class Message extends Model {
     static init(sequelize) {
         super.init({
             message: DataTypes.STRING,
-            user_id: DataTypes.INTEGER,
+            to: DataTypes.INTEGER,
+            from: DataTypes.INTEGER,
         }, { sequelize })
     }
 
     static associate(models) {
-        this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' })
+        this.belongsTo(models.User, { foreignKey: 'to', as: 'user_to' })
+        this.belongsTo(models.User, { foreignKey: 'from', as: 'user_from' })
     }
 
 }

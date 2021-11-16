@@ -1,33 +1,50 @@
-import { api } from './helpers/api.js'
+// import conexão com api
+import Api from './helpers/api.js'
+import { QS } from './helpers/index.js'
 
-const signIn = document.querySelector('#sign-in')
+// caputra formulario html
+const signIn = QS('#sign-in')
 
+
+// adiciona evento de envio de formulario
 signIn.addEventListener('submit', async e => {
+
     e.preventDefault()
 
+    // captura dados do formulario
     const email = e.target.elements.email
     const password = e.target.elements.password
 
+    // verifica se os inputs estão vazios
     if (!email.value || !password.value) {
         alert('Não pode haver campos vazios')
         return
     }
 
-
-    const result = await api('post', '/auth', {
+    // conecta a api para realização de login
+    const result = await Api.connect('post', '/auth', {
         email: email.value,
         password: password.value
     })
 
+
     result.onreadystatechange = () => {
         if (result.readyState == 4) {
+
+            // caso email n seja cadastrado
             if (result.status == 404)
                 alert('Esse email não está cadastrado, utilize outro por favor.');
 
+            // login efetuado com sucesso
             if (result.status == 200) {
+
+                // gurada no local storage
                 const { user, token } = JSON.parse(result.responseText)
                 window.localStorage.setItem('token', token)
                 window.localStorage.setItem('user', user)
+
+                // redireciona para pagina inicial
+                window.location.href = '/'
             }
         }
     }

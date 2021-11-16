@@ -1,31 +1,34 @@
-import { baseUrl } from './index.js'
+import Helpers from './index.js'
 
-export const api = async(
-    flag,
-    url,
-    data = null,
-    token = null,
-    permission = null
-) => {
-    const xmlhttp = new XMLHttpRequest(); // new HttpRequest instance 
+export default class Api {
+    static async connect(flag,
+        url,
+        data = null,
+        token = null,
+        permission = null
+    ) {
 
-    if (permission)
-        xmlhttp.open(flag, `${baseUrl}/api${url}`, true)
-    else
-        xmlhttp.open(flag, `${baseUrl}/api${url}`)
+        // instancia uma requisição XMLHTTP
+        this.xmlhttp = new XMLHttpRequest(); // new HttpRequest  
+
+        // verifica as permissões
+        if (permission)
+            this.xmlhttp.open(flag, `${Helpers.getBaseUrl()}/api${url}`, permission);
+        else
+            this.xmlhttp.open(flag, `${Helpers.getBaseUrl()}/api${url}`);
 
 
+        // caso exista um token seta automaticamente no header da requisição
+        if (token)
+            this.xmlhttp.setRequestHeader("Authorization", token);
 
+        // caso exista corpo de requisição
+        if (data) {
+            this.xmlhttp.setRequestHeader("Content-Type", "application/json")
+            this.xmlhttp.send(JSON.stringify(data));
+        } else
+            this.xmlhttp.send();
 
-    if (token) {
-        xmlhttp.setRequestHeader("Authorization", token);
+        return this.xmlhttp
     }
-
-    if (data) {
-        xmlhttp.setRequestHeader("Content-Type", "application/json");
-        xmlhttp.send(JSON.stringify(data));
-    } else {
-        xmlhttp.send();
-    }
-    return xmlhttp
 }

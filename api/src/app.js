@@ -1,5 +1,3 @@
-const { fdatasync } = require('fs');
-
 require('./database')
 
 class App {
@@ -9,7 +7,7 @@ class App {
         this.cors = require('cors')
         this.route = require('./routes/routes')
         this.socketio = require('socket.io')
-        this.axios = require('axios')
+        this.websocket = require('./websocket/index')
 
         this.routesView = require('./routes/public')
 
@@ -41,48 +39,7 @@ class App {
     }
 
     realtime() {
-        const io = this.socketio(this.server, { cors: { origin: '*' } })
-
-        io.on('connection', socket => {
-
-            socket.on('newUser', async data => {
-
-                const user = await this.SERVER_USERS.find(element => element.id == data.user)
-                if (!user) {
-
-                    const configAxios = {
-                        headers: { Authorization: `Bearer ${data.token}` }
-                    };
-
-                    const axiosRespose = await this.axios.get(`http://localhost:3000/api/users/${data.user}`, configAxios)
-
-                    this.SERVER_USERS.push({...axiosRespose.data, socket_id: socket.id })
-
-                } else {
-                    this.SERVER_USERS.forEach(element => {
-                        (data.user == element.id)
-                        element.socket_id = socket.id
-                    })
-                }
-
-                socket.emit('usersList', this.SERVER_USERS)
-                socket.broadcast.emit('usersList', this.SERVER_USERS)
-
-            })
-
-            socket.on('disconnect', async() => {
-
-                let user = null
-                await this.SERVER_USERS.forEach((element, index) => user = element.socket_id == socket.id ? {...element, index } : null)
-                if (user) {
-                    this.SERVER_USERS.splice(this.SERVER_USERS.indexOf(user.index), 1);
-                    socket.broadcast.emit('usersList', this.SERVER_USERS)
-
-                }
-            })
-
-
-        })
+        this.websocket(this.socketio, this.server)
     }
 }
 

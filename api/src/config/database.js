@@ -5,6 +5,7 @@ module.exports = {
     database: 'whatsgram',
     username: 'root',
     password: '',
+    logging: false,
     define: {
         timestamp: true,
         underscored: true,
