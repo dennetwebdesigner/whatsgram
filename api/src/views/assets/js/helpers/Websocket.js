@@ -11,7 +11,6 @@ class WebSocket {
 
     receive(sign, callback) {
         this.socket.on(sign, data => {
-            console.log(data)
             callback(data)
         })
     }

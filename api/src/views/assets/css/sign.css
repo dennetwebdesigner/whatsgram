@@ -1,7 +1,9 @@
 /* Description */
 
 .panel {
-    width: 360px;
+    width: 98%;
+    max-width: 350px;
+    min-width: 345px;
     margin: 0 30px;
     background-color: #fff;
     position: relative;
@@ -184,4 +186,21 @@
     display: none;
     transition: .8s;
     opacity: 0;
+}
+
+@media (max-width: 800px) {
+    html,
+    body {
+        overflow-y: auto;
+        display: block;
+        padding-bottom: 10px;
+    }
+    .panel {
+        margin: 10px auto;
+        width: 95%;
+        max-width: 360px;
+    }
+    .panel:last-child {
+        margin-bottom: 50px;
+    }
 }

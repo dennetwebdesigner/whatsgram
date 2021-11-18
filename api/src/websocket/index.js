@@ -1,7 +1,17 @@
 const axios = require('axios')
+
+// NGROK
+// const protocol = 'https://'
+// const host = '729d-179-191-20-156.ngrok.io'
+// const port = ''
+
+
+// TEST
 const protocol = 'http://'
 const host = 'localhost'
 const port = ':3000'
+
+
 const baseUrl = `${protocol}${host}${port}`
 const SERVER_USERS = []
 const SERVER_MESSAGES = []

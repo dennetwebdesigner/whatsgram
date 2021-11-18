@@ -1,6 +1,12 @@
 import Api from './api.js'
 class Helpers {
     constructor() {
+        // NGROK
+        // this.protocol = 'https://'
+        // this.host = '729d-179-191-20-156.ngrok.io'
+        // this.port = ''
+
+        // TEST
         // protocolo http
         this.protocol = 'http://'
         // host/dominio

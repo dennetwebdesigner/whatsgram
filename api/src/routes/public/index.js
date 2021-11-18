@@ -1,5 +1,6 @@
 const express = require('express')
 const { resolve } = require('path')
+require('dotenv/config')
 
 const app = express()
 
@@ -12,7 +13,7 @@ const views = [
     { method: 'get', path: '/cadastrar', file: 'sign.html' },
     { method: 'get', path: '/entrar', file: 'sign.html' },
     { method: 'get', path: '/:id', file: 'index.html' },
-    { method: 'get', path: '/', file: 'index.html' },
+    { method: 'get', path: '/', file: 'index.html', data: { env: process.env } },
 ]
 
 bodyParser = require('body-parser')
@@ -23,11 +24,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 views.forEach((view) => {
     if (view.method == 'get') {
         app.get(view.path, async(req, res) => {
-            return res.render(view.file, { data: 'test' })
+            console.log(process.env.HOST)
+            return res.render(view.file, { host: process.env.HOST })
         })
     } else if (view.method == 'post') {
         app.post(view.path, async(req, res) => {
-            return res.render(view.file, { data: 'test' })
+            return res.render(view.file, { host: 'test' })
         })
     }
 })

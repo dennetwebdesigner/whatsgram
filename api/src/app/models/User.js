@@ -27,6 +27,8 @@ class User extends Model {
     static associte(models) {
         this.hasMany(models.Messages, { foreignKey: 'to', as: 'messages_to' })
         this.hasMany(models.Messages, { foreignKey: 'from', as: 'messages_from' })
+        this.hasMany(models.Contact, { foreignKey: 'from', as: 'contact-for' })
+        this.hasMany(models.Contact, { foreignKey: 'to', as: 'contact-to' })
 
     }
 

@@ -13,11 +13,11 @@ document.body.onload = () => {
     const signUp = document.querySelector('#sign-up')
 
 
-
     if (window.location.href.substring(window.location.href.lastIndexOf('/') + 1) == 'cadastrar') {
-        panelSign.style.transform = "translateX(-404px)"
-        panelSideLeft.style.transform = "translateX(404px)"
-
+        if (document.body.clientWidth > 800) {
+            panelSign.style.transform = "translateX(-404px)"
+            panelSideLeft.style.transform = "translateX(404px)"
+        }
         // FADE OUT SIGN IN, FIRST PANEL 
         firstPanel.style.opacity = '0'
         signIn.style.opacity = '0'
@@ -45,16 +45,15 @@ document.body.onload = () => {
     btnRegister.addEventListener('click', e => {
 
         e.preventDefault()
-        console.log('aqui')
         const href = window.location.href
         const path = href.substring(href.lastIndexOf('/') + 1)
 
         if (path == 'entrar') {
             window.history.pushState({ page: "register" }, "register page", "cadastrar")
-
-            panelSign.style.transform = "translateX(-404px)"
-            panelSideLeft.style.transform = "translateX(404px)"
-
+            if (document.body.clientWidth > 800) {
+                panelSign.style.transform = "translateX(-404px)"
+                panelSideLeft.style.transform = "translateX(404px)"
+            }
             // FADE OUT SIGN IN, FIRST PANEL 
             firstPanel.style.opacity = '0'
             signIn.style.opacity = '0'
@@ -83,12 +82,14 @@ document.body.onload = () => {
         e.preventDefault()
         const href = window.location.href
         const path = href.substring(href.lastIndexOf('/') + 1)
-        console.log(path)
+
         if (path == 'cadastrar') {
             window.history.pushState({ page: "enter" }, "enter page", "entrar")
 
-            panelSign.style.transform = "translateX(0)"
-            panelSideLeft.style.transform = "translateX(0)"
+            if (document.body.clientWidth > 800) {
+                panelSign.style.transform = "translateX(0)"
+                panelSideLeft.style.transform = "translateX(0)"
+            }
 
             // FADE OUT SIGN UP, SECOND PANEL 
             secondPanel.style.opacity = '0'
