@@ -2,7 +2,22 @@ const User = require('../models/User')
 
 class UserController {
 
-    static async index() {}
+    static async index(req, res) {
+        const { email } = req.body
+
+        const user = await User.findOne({
+            where: { email },
+            attributes: ['id']
+        })
+
+        if (!user) return res.status(404).json({ error: 'user not found!' })
+
+        try {
+            return res.json(user)
+        } catch (error) {
+            return res.status(500).json({})
+        }
+    }
 
     static async show(req, res) {
         const { id } = req.params
@@ -37,11 +52,11 @@ class UserController {
         try {
 
             if (await User.create({
-                    name,
-                    email,
-                    password_input: password,
-                    img: './assets/img/user-icon.png'
-                })) {
+                name,
+                email,
+                password_input: password,
+                img: './assets/img/user-icon.png'
+            })) {
                 return res.status(201).json({})
             }
 
@@ -52,9 +67,9 @@ class UserController {
 
     }
 
-    static async update() {}
+    static async update() { }
 
-    static async destroy() {}
+    static async destroy() { }
 
 }
 

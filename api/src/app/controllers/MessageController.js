@@ -37,7 +37,49 @@ class MessageController {
         }
     }
 
-    static async show() { }
+    static async show(req, res) {
+        const id = req.userId
+
+        const messages = await Message.findAll({
+            where: {
+                [Op.or]: [{ to: id }, { from: id }]
+            },
+            order: [['updatedAt', 'DESC']],
+            include: {
+                association: 'user_to',
+                attributes: ['id', 'name', 'img']
+            }
+        })
+
+        let dataArray = []
+        let newArray = []
+        await messages.forEach(async element => {
+
+            await dataArray.push({
+                id: element.user_to.id,
+                name: element.user_to.name,
+                img: element.user_to.img,
+                updatedAt: element.updatedAt
+            })
+        })
+
+
+
+        newArray = [
+            ...new Map(
+                dataArray.map(item => {
+                    return [item['id'], item]
+                })
+            ).values()
+        ]
+
+        return res.json(newArray)
+
+        // return res.json(messages)
+
+
+
+    }
 
     static async store(req, res) {
 

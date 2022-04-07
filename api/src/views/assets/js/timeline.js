@@ -1,10 +1,7 @@
 import Helpers, { QS } from './helpers/index.js'
-import './run-time/UserRunTime.js'
-import './run-time/MessagerRunTime.js'
-
+import './app/index.js'
 // verifica se usuario é valido
 Helpers.authentification()
 
 let from = null
 
-console.log()

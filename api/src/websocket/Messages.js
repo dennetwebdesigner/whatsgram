@@ -28,10 +28,9 @@ class Messages {
 
         const message_data = await this.axios.get(`${this.baseUrl}/api/messages/${data.room}`, this.configAxios)
 
-        await message_data.data.map(async element => {
-            element.updatedAt = this.convertTimestamp(element.updatedAt)
-        })
-
+        await message_data.data.sort((a, b) => {
+            return a.id - b.id || a.name.localeCompare(b.name);
+        });
 
         socket.emit('message_all', message_data.data)
     }

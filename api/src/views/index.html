@@ -2,65 +2,80 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsGram Chat</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
-    <link rel="stylesheet" href="./assets/css/commom.css">
-    <link rel="stylesheet" href="./assets/css/chat.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsGram Chat</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="./assets/css/commom.css">
+  <link rel="stylesheet" href="./assets/css/chat.css">
 
 </head>
 
 <body>
 
-    <main>
-        <!-- <div id="mobile-icon">
+  <div class="bg-cover"></div>
+
+  <form class="modal-new-contact" id="add-new-contact">
+    <input type="text" name="email" id="input-email-add">
+    <button type="submit" name="insert" value="insert">adicionar</button>
+    <button type="button" id='closed-new-contact'>sair</button>
+  </form>
+
+  <main>
+    <!-- <div id="mobile-icon">
             <i class="fas fa-bars"></i>
         </div> -->
-        <nav id="menu">
+    <nav id="menu">
 
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <img src="./assets/img/message-icon.png" id="menu-messages" alt="mensagens">
-                </li>
-                <li class="menu-item">
-                    <img src="./assets/img/contact-icons.png" id="menu-contacts" alt="contatos"></li>
-                <li class="menu-item">
-                    <img src="./assets/img/user-icon.png" id="menu-profile" alt="perfil"></li>
-                <li class="menu-item">
-                    <img src="./assets/img/settings-icon.png" id="menu-settings" alt="configuração">
-                </li>
-            </ul>
+      <ul class="menu-list">
+        <li class="menu-item">
+          <i class="far fa-comments" id="menu-messages"></i>
+        </li>
+        <li class="menu-item">
+          <i class="far fa-address-book" id="menu-contacts"></i>
+        </li>
+        <li class="menu-item">
+          <i class="far fa-id-badge" id="menu-profile"></i>
+        </li>
+        <li class="menu-item">
+          <i class="fas fa-cogs" id="menu-settings"></i>
 
-            <div class="menu-content">
-                <ul id="conversations" class="list-display">
+        </li>
+      </ul>
 
-                </ul>
-            </div>
+      <div class="menu-content">
 
-        </nav>
+        <button class="add-new-contact">
+          add novo contato
+        </button>
+
+        <ul id="conversations" class="list-display">
+        </ul>
+      </div>
+
+    </nav>
 
 
-        <section id="chat-content">
-            <header>
-                <div id="chat-back"><i class="fas fa-arrow-circle-left"></i></div>
-                <img src="./assets/img/user-icon.png" alt="">
-                <h2>lsdkjgr saeofjeof</h2>
-            </header>
+    <section id="chat-content">
+      <header>
+        <div id="chat-back"><i class="fas fa-arrow-circle-left"></i></div>
+        <img src="./assets/img/user-icon.png" alt="">
+        <h2>lsdkjgr saeofjeof</h2>
+      </header>
 
-            <div class='chat-messages' id='chat-messages'></div>
+      <div class='chat-messages' id='chat-messages'></div>
 
-            <form id="send-message">
-                <input type="text" name="message" placeholder="enviar message..." autocomplete="off">
-                <button type="submit">Enviar</button>
-            </form>
+      <form id="send-message">
+        <input type="text" name="message" placeholder="enviar message..." autocomplete="off">
+        <button type="submit">Enviar</button>
+      </form>
 
-        </section>
-    </main>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./assets/js/timeline.js" type="module"></script>
+    </section>
+  </main>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./assets/js/timeline.js" type="module"></script>
 </body>
 
 </html>

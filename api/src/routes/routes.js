@@ -23,8 +23,12 @@ route.get('/users/:id', UserController.show)
 
 // messages
 route.get('/messages/:from', MessageController.index)
+route.get('/messages', MessageController.show)
 route.post('/messages/:from', MessageController.store)
 
-route.get('/contacts/:id', ContactController.store)
+// contacts
+route.get('/contacts', ContactController.index)
+route.get('/contacts/:id', ContactController.show)
+route.post('/contacts', ContactController.store)
 
 module.exports = route
